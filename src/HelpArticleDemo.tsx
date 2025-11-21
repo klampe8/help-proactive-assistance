@@ -1,0 +1,354 @@
+import React from "react";
+import { Provider } from "@react-spectrum/s2";
+import { style } from "@react-spectrum/s2/style" with { type: "macro" };
+import AISummaryPrototype from "./AISummaryPrototype";
+import "@react-spectrum/s2/page.css";
+
+const HelpArticleDemo: React.FC = () => {
+  return (
+    <Provider background="base">
+      <div
+        className={style({
+          maxWidth: 1200,
+          marginX: "auto",
+          paddingX: 24,
+          paddingY: 40,
+        })}
+      >
+        {/* Breadcrumb */}
+        <nav
+          className={style({
+            marginBottom: 16,
+          })}
+        >
+          <ul
+            className={style({
+              display: "flex",
+              gap: 8,
+              listStyle: "none",
+              padding: 0,
+              margin: 0,
+              font: "body-sm",
+              color: "neutral-subdued",
+            })}
+          >
+            <li>Acrobat Desktop Help</li>
+            <li>/</li>
+            <li>Troubleshoot</li>
+            <li>/</li>
+            <li>Print and scan issues</li>
+          </ul>
+        </nav>
+
+        {/* Article Header */}
+        <header
+          className={style({
+            marginBottom: 24,
+          })}
+        >
+          <h1
+            className={style({
+              font: "heading-2xl",
+              fontWeight: "extra-bold",
+              color: "heading",
+              marginTop: 0,
+              marginBottom: 16,
+            })}
+          >
+            Error while printing PDFs in Acrobat
+          </h1>
+
+          <p
+            className={style({
+              font: "body",
+              color: "neutral-subdued",
+              margin: 0,
+            })}
+          >
+            Last updated on Sep 23, 2025
+          </p>
+        </header>
+
+        {/* AI Summary Component */}
+        <AISummaryPrototype />
+
+        {/* Article Description */}
+        <div
+          className={style({
+            marginBottom: 40,
+          })}
+        >
+          <p
+            className={style({
+              font: "title",
+              fontWeight: "bold",
+              color: "body",
+            })}
+          >
+            Learn how to troubleshoot printing errors in Adobe Acrobat.
+          </p>
+        </div>
+
+        {/* Article Content */}
+        <div
+          className={style({
+            display: "flex",
+            flexDirection: "column",
+            gap: 32,
+          })}
+        >
+          {/* Section 1 */}
+          <section id="acrobat-not-updated">
+            <h2
+              className={style({
+                font: "heading-lg",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 0,
+                marginBottom: 16,
+              })}
+            >
+              Acrobat isn't updated
+            </h2>
+            <ol
+              className={style({
+                font: "body",
+                color: "body",
+                paddingLeft: 24,
+              })}
+            >
+              <li>Open Acrobat.</li>
+              <li>
+                Select <strong>Menu {">"} Help {">"} Check for updates</strong>{" "}
+                (Windows) or <strong>Help {">"} Check for updates</strong> (macOS).
+              </li>
+              <li>Install available updates and restart Acrobat.</li>
+            </ol>
+          </section>
+
+          {/* Section 2 */}
+          <section id="printer-connection">
+            <h2
+              className={style({
+                font: "heading-lg",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 0,
+                marginBottom: 16,
+              })}
+            >
+              Printer connection or hardware issue
+            </h2>
+            <p
+              className={style({
+                font: "body",
+                color: "body",
+                marginTop: 0,
+                marginBottom: 16,
+              })}
+            >
+              Ensure that your printer is properly connected to the system via a USB
+              cable. Print a test page. If the printer fails to respond, check that
+              the printer cable is firmly connected to your computer. For better
+              performance, connect the printer directly to a USB port on your
+              computer rather than through a USB hub.
+            </p>
+            <p
+              className={style({
+                font: "body",
+                color: "body",
+                margin: 0,
+              })}
+            >
+              If issues persist, turn the printer off, wait for 30 seconds, and then
+              turn it back on. This process can often reset the printer's internal
+              systems and resolve minor glitches. After completing these steps,
+              attempt to print your PDF again. These simple checks can often resolve
+              common printer connectivity issues and ensure your hardware is
+              functioning correctly.
+            </p>
+          </section>
+
+          {/* Section 3 */}
+          <section id="outdated-drivers">
+            <h2
+              className={style({
+                font: "heading-lg",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 0,
+                marginBottom: 16,
+              })}
+            >
+              Outdated drivers
+            </h2>
+            <p
+              className={style({
+                font: "body",
+                color: "body",
+                margin: 0,
+              })}
+            >
+              Ensure your printer is using the most up-to-date software. Visit your
+              printer manufacturer's website and locate the drivers section. Search
+              for and download the latest drivers specifically for your model. Once
+              downloaded, install these updated drivers on your computer. After
+              installation, restart your computer and launch Adobe Acrobat. Attempt
+              to connect to your printer again.
+            </p>
+          </section>
+
+          {/* Section 4 */}
+          <section id="printer-specific">
+            <h2
+              className={style({
+                font: "heading-lg",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 0,
+                marginBottom: 16,
+              })}
+            >
+              Printer-specific issue
+            </h2>
+            <p
+              className={style({
+                font: "body",
+                color: "body",
+                marginBottom: 12,
+              })}
+            >
+              Test printing to a different printer to determine whether the problem
+              is with the current device. Switch to another printer if available. To
+              change the default printer:
+            </p>
+            <ul
+              className={style({
+                font: "body",
+                color: "body",
+                paddingLeft: 24,
+              })}
+            >
+              <li>
+                <strong>Windows:</strong> Change the default printer – Microsoft Help
+              </li>
+              <li>
+                <strong>macOS:</strong> Change the default printer – Apple Support
+              </li>
+            </ul>
+          </section>
+
+          {/* Section 5 */}
+          <section id="corrupt-pdf">
+            <h2
+              className={style({
+                font: "heading-lg",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 0,
+                marginBottom: 16,
+              })}
+            >
+              Corrupt or problematic PDF file
+            </h2>
+
+            <h3
+              className={style({
+                font: "heading",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 24,
+                marginBottom: 12,
+              })}
+            >
+              Print as image
+            </h3>
+            <ol
+              className={style({
+                font: "body",
+                color: "body",
+                paddingLeft: 24,
+                marginBottom: 24,
+              })}
+            >
+              <li>Open Acrobat.</li>
+              <li>
+                Select <strong>Print this file</strong> from the top bar.
+              </li>
+              <li>
+                In the Print dialog box, select <strong>Advanced</strong>.
+              </li>
+              <li>
+                Select <strong>Print as Image</strong>.
+              </li>
+              <li>
+                Select <strong>OK</strong> and then select <strong>Print</strong>.
+              </li>
+            </ol>
+
+            <h3
+              className={style({
+                font: "heading",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 24,
+                marginBottom: 12,
+              })}
+            >
+              Download or copy the PDF again
+            </h3>
+            <p
+              className={style({
+                font: "body",
+                color: "body",
+                margin: 0,
+              })}
+            >
+              Save the PDF directly to your hard drive, not a USB or network drive.
+              Open the PDF in Acrobat and print the saved file.
+            </p>
+
+            <h3
+              className={style({
+                font: "heading",
+                fontWeight: "bold",
+                color: "heading",
+                marginTop: 24,
+                marginBottom: 12,
+              })}
+            >
+              Save As a new copy
+            </h3>
+            <ol
+              className={style({
+                font: "body",
+                color: "body",
+                paddingLeft: 24,
+              })}
+            >
+              <li>Open Acrobat.</li>
+              <li>
+                Select <strong>Menu {">"} File {">"} Save As</strong> (Windows) or{" "}
+                <strong>File {">"} Save As</strong> (macOS).
+              </li>
+              <li>Rename the file using only letters and numbers.</li>
+              <li>Open the saved file in Acrobat.</li>
+              <li>
+                Select <strong>Print this file</strong> from the top bar.
+              </li>
+              <li>
+                Select <strong>Print</strong>.
+              </li>
+            </ol>
+          </section>
+
+          {/* More space for scrolling */}
+          <div className={style({ height: 800 })} />
+        </div>
+      </div>
+    </Provider>
+  );
+};
+
+export default HelpArticleDemo;
+

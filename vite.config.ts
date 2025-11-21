@@ -13,13 +13,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import macros from 'unplugin-parcel-macros';
-import mkcert from 'vite-plugin-mkcert';
+// import mkcert from 'vite-plugin-mkcert';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     macros.vite(),
-    mkcert(),
+    // mkcert(), // Disabled for local development
     react()
   ],
   build: {
