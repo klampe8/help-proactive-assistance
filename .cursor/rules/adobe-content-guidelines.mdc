@@ -1,0 +1,722 @@
+Adobe Content Guidelines
+
+# Adobe Content Guidelines
+
+Comprehensive content and copywriting standards for Adobe products and experiences.
+
+<rule>
+name: adobe_content_guidelines
+description: Standards for writing user-facing content following Adobe's voice, tone, and style guidelines
+filters:
+  # Match dialog/modal content
+  - type: content
+    pattern: "(?:dialog|modal|alert|notification|message).*(?:title|content|text)"
+  # Match user-facing strings
+  - type: content
+    pattern: "(?:label|placeholder|helperText|errorMessage|successMessage)"
+  # Match documentation files
+  - type: file_extension
+    pattern: "\\.(md|mdx|txt)$"
+
+actions:
+  - type: suggest
+    message: |
+      ## Adobe Voice & Tone Guidelines
+
+      ### Core Principles
+      - Speak with one voice across all products
+      - Adapt tone based on situational context and user emotion
+      - Ensure language aligns with visual and interaction design
+
+      ### Voice Characteristics
+      
+      **Clear and understandable**
+      - Ensure decisions about grammar and mechanics are research-informed and tested
+      - Avoid language that's overly opinionated, funny, or trendy
+
+      **Human (Friendly, honest, and responsible)**
+      - Vary sentence style and structure for readability and relatability
+      - Acknowledge and account for users' emotions
+
+      **Focused (Concise and simple)**
+      - Describe only what's needed, without unnecessary decoration
+      - Avoid creating new concepts and only name things when necessary
+
+      ### Tone Spectrum
+      The right tone depends on a user's contextual needs and corresponding emotions. Think of tone as being on a spectrum from motivational to supportive:
+
+      **Motivational** (Rarely)
+      - Attitude: Positive and encouraging
+      - Example: "We're looking out for you and cheering you on. You've got this!"
+
+      **Helpful** (Occasionally)
+      - Attitude: Polite and respectful
+      - Example: "We know you're busy, so we'll make this brief."
+
+      **Instructive** (Often)
+      - Attitude: Neutral and direct
+      - Example: "Here is the information you need."
+
+      **Reassuring** (Occasionally)
+      - Attitude: Professional and reliable
+      - Example: "We know you're worried about this issue, and we're here to help."
+
+      **Supportive** (Rarely)
+      - Attitude: Concerned and empathetic
+      - Example: "Something bad has happened and we understand how you feel. We want to inform, guide, and support you through this."
+
+      **Important:** The points on this spectrum aren't necessarily binary. The right tone for an experience could be either motivational or helpful, or it could exist somewhere between those points.
+      
+      ### Grammar and Mechanics Standards
+      
+      **Style Foundation**
+      - Use Associated Press (AP) style for in-product UX writing with exceptions noted
+      - Content applies to U.S. English (source language)
+      - Defer to component-level style guidance when needed
+
+      **Voice Preference**
+      - **Active voice**: Use in most cases (simpler, shorter, clearer, more conversational)
+      - **Passive voice**: Use sparingly to soften harsh messages or provide distance
+      - Example: "Your payment has been declined" vs "We declined your payment"
+
+      **Contractions**
+      - Use common contractions: what's, they're, doesn't, didn't, isn't, aren't, can't
+      - Avoid colloquial contractions: ain't, y'all, y'know
+      - Don't overuse in one sentence (affects readability)
+      - Avoid for legal, payment, and security content
+
+      **Verb Tenses**
+      - Use simple tenses: past, present, future (not perfect or progressive)
+      - Reasons: fewer words, better readability, easier for non-native speakers
+      - Avoid: was/wasn't, were/weren't, has/hasn't, have/haven't before verbs
+
+      **Capitalization**
+      - **Sentence case**: Default for most content (friendly, less formal)
+      - **Title case**: Rarely used
+      - **All caps**: Only for acronyms and file extensions (TIF, ZIP, PSD)
+
+      **Pronouns**
+      - Talk TO users, not AS them ("You can export" not "I can export")
+      - Use singular "they" for gender-neutral references
+      - Avoid first person except: direct responses, privacy contexts, legal consent
+      - Rarely use "we/us" for Adobe (only for critical errors: "We're sorry")
+
+      **Key Punctuation Rules**
+      - **Ampersand (&)**: Don't use - write "and" instead (better for translation/accessibility)
+      - **Apostrophe**: Don't use in place of quotation marks
+      - **Serial comma**: Always use Oxford comma in lists
+      - **Ellipsis (...)**: For truncated text and loading states only
+      - **No exclamation marks**: Difficult to localize and easy to overuse
+      - **Em dashes**: Use with spaces for related thoughts ( - )
+      - **Hyphens**: Between words with no spaces (auto-update)
+      - **Parentheses**: For supplementary context, not brackets
+      - **Periods**: Use for full sentences, not for short phrases/labels
+      - **Quotation marks**: Only for quotes or file names - use smart quotes
+      - **Semicolons**: Don't use - use periods, commas, or em dashes instead
+
+      **Numbers and Formatting**
+      - **Currency**: $1 (casual) or $1.00 (formal), $100 USD (international)
+      - **Large numbers**: Use commas (1,000) or spell out (4 thousand, 81 million)
+      - **Abbreviations**: 71 M records, 1 hr 21 min, Jan/Feb/Mar (no periods)
+      - **Dates**: MM-DD-YYYY format, localize appropriately
+      - **Time**: 12-hour format, lowercase am/pm, no space (1:30pm)
+
+      ### Error Message Standards
+
+      **Core Philosophy**
+      - Best error message is no error at all - prevent when possible
+      - Use system auto-resolution before showing user messages  
+      - Error messages should be last resort, not design workaround
+
+      **Error Message Anatomy**
+      Every error message should include (when relevant):
+      1. **What happened** - Clear outcome in plain language
+      2. **Underlying cause** - Why it happened (optional, context-dependent)
+      3. **How to fix it** - Actionable next steps for user
+
+      **Writing Principles**
+
+      **Be Empathetic to Users, Not System**
+      - Center language around user goals, not system constraints
+      - Don't explain system architecture - focus on user solutions
+      - Example: "Accept the End User License Agreement terms" (not "There was a RAISE without a handler")
+
+      **Use Plain Language**
+      - Avoid jargon users won't understand
+      - Technical terms OK if audience is familiar and terms are relevant
+      - Example: "Due to server connectivity issues, some results may be unavailable" (not "server-side connectivity failure")
+
+      **Don't Blame Users**
+      - Even when error is user-caused, be supportive not accusatory
+      - Example: "Your computer appears to be offline" (not "You went offline")
+
+      **Be Specific but Generic**
+      - Create specific error states for each case (better UX and analytics)
+      - Use generic variable language for localization
+      - Example: "Your document could not be saved" (not "Final-proposal-May.indd could not be saved to MayProposals")
+
+      **Error Message Tone Guide**
+
+      **Instructive** (Low consequence, simple errors)
+      - Example: "Unable to load this page"
+
+      **Reassuring** (Minor errors, user worried)  
+      - Example: "Our servers timed out and we couldn't save your file. Please try again, and if the problem persists, contact your IT administrator"
+
+      **Supportive** (Major errors, bad outcome)
+      - Example: "We're sorry, but we couldn't renew your subscription because your credit card has expired. You still have 90 days to recover your files and apps by renewing your subscription with an active card"
+
+      **Writing Guidelines**
+      - **Don't apologize** unless truly warranted (minor errors sound insincere)
+      - **Use active voice** primarily, passive voice to soften user-caused errors
+      - **Use "we/you"** strategically to clarify who takes action: "Something went wrong and we couldn't generate your report. Please try again in a few minutes"
+      - **Put error codes at end** so users aren't overwhelmed by technical info
+
+      **Component Selection Framework**
+      Choose error component based on three factors:
+
+      **Consequence** (Low vs High stakes)
+      **Complication** (Simple vs Complex explanation needed)  
+      **Action** (Low effort vs High effort resolution)
+
+      **Alert Dialog**: High/High/High - Blocks user, needs immediate attention
+      **Alert Banner**: Low/Low/High - System-level, pressing, needs action
+      **Help Text**: Low/Low/Low - Input guidance and formatting hints
+      **In-line Alert**: Any/High/High - Form validation, multiple field errors
+      **Toast**: Low/Low/Low - Brief, contextual, non-blocking notifications
+
+      ### Writing with Visuals Standards
+
+      **Core Principle**
+      Think and write as if visuals don't exist - this helps the greatest number of people get your message through screen readers, assistive technology, and various accessibility needs.
+
+      **Organize Information Accessibly**
+
+      **Use Chronological Organization**
+      - Organize by time sequence: "First/Next/Finally" (not spatial: "Above/Below/Left/Right")
+      - Create modular content that can be rearranged without losing meaning
+      - Example: "Take this hands-on tutorial now. [Start]" (standalone vs dependent content)
+
+      **Avoid Directional Language**
+      - **Use**: "First, Next, In the menu bar, Finally"
+      - **Avoid**: "Above, Below, On the left, At the bottom"
+      - Helps people using screen readers and those with visual impairments
+
+      **Write About Actions, Not Appearance**
+
+      **Focus on Function Over Form**
+      - Describe what controls DO, not what they LOOK like
+      - Screen readers already announce control types (button, slider, etc.)
+      - Example: "Save" (not "The Save button"), "Edit" (not "The pencil icon")
+
+      **Action-Focused Language**
+      - **Use**: "Enter email, Save, Zoom in, Cancel, Select"
+      - **Avoid**: "Type email address, The Save button, Pinch trackpad, Close, Click/tap"
+      - Focus on results and effects, not physical interactions
+
+      **Don't Rely on Visual Elements Alone**
+
+      **Supplement Color and Icons with Text**
+      - Add descriptive text rather than relying only on color/icons for communication
+      - Make link purposes clear from text alone (not "click here")
+      - Example: "Password must be at least 8 characters" (not just red outline for errors)
+
+      **Describe Actions, Not Visual Design**
+      - **Use**: "Secure site, Saved to cloud, Go button"
+      - **Avoid**: "Green checkmark, Cloud icon, Green button"
+      - Visual metaphors can have different cultural interpretations
+
+      **Alt Text Guidelines**
+
+      **When Alt Text is Needed**
+      - Images conveying information independently of text
+      - Images with text that needs localization
+      - NOT needed for purely decorative images or when text already describes the content
+
+      **Alt Text Writing Principles**
+      - **Be additive**: Don't repeat accompanying text, provide missing context
+      - **Use active voice**: Simpler, clearer, more conversational
+      - **Match product tone**: Consistent terminology and voice
+      - **Proper grammar**: Start with capital letter, end with period
+      - **Write out abbreviations**: Full words for screen reader clarity
+
+      **Alt Text Examples by Content Type**
+
+      **Photographs/Stock Images**
+      - Describe as if explaining over the phone
+      - Example: "Tibetan monk wearing red robe walking across wooden bridge covered with multicolor prayer flags"
+
+      **Interface Elements**
+      - Describe the action, not appearance
+      - Example: "Send message" (not "paper airplane in motion")
+
+      **Data Visualizations**
+      - Use descriptive phrases: "chart of," "diagram of," "data visualization of"
+      - Include key data points: "2 meters showing positive status. First meter labeled Tutorials completed, 2 of 8"
+
+      **Usage Examples/Guidelines**
+      - Describe specific examples and include any text in the image
+      - Example: "3 key examples showing correct usage of simple tense: She ran for president. He writes great poetry. Carmen will make the poster"
+
+      ### Writing for Readability Standards
+
+      **Core Goal**
+      Write for a 6th-grade reading level to include people with cognitive/neurological abilities, ESL speakers, and users of all ages. Clear language reaches the greatest number of people.
+
+      **6th-Grade Reading Level Principles**
+
+      **Sentence Structure**
+      - Use short sentences (aim for 4-15 words)
+      - Write 2 short sentences instead of 1 long sentence
+      - Example: "We exported the file. Now you can open it in Illustrator" (not "This file has been exported successfully to be opened in Adobe Illustrator")
+
+      **Simple Language Choices**
+      - **Simple verbs**: Use simple tenses (exported vs has been exported)
+      - **Active voice**: "You can open" (not "to be opened")
+      - **Remove adverbs**: Delete "successfully," "awesome," etc.
+      - **Remove unnecessary adjectives**: Cut decorative words
+
+      **Word Choice Substitutions**
+      - **"Buy"** (not "purchase")
+      - **"Help"** (not "assist") 
+      - **"About"** (not "approximately")
+      - **"Like"** (not "such as")
+      - Choose common words over complex synonyms
+
+      **Universal Writing Principles**
+
+      **Avoid Internal Jargon**
+      - **Use**: "Creative Cloud Files" (not "CC Files")
+      - **Use**: "XD cloud documents, a new way to collaborate" (not "Introducing XD cloud docs!")
+      - **Use**: "Please accept the Terms of Service" (not "There was a RAISE without a handler")
+      - If technical terms are needed, explain them clearly on first use
+
+      **Avoid Colloquial Language**
+      - **Use**: "Select any that apply" (not "Choose whatever blows your hair back")
+      - **Use**: "Agree to terms and conditions" (not "It be like that sometimes")  
+      - **Use**: "Learn more" (not "Get the deetz")
+      - Plain language works for all generations and cultures
+
+      **Avoid Cultural References**
+      - Don't use idioms, especially those with offensive origins
+      - Don't rely on emoji or symbols (cultural interpretation varies)
+      - Use direct language that translates well globally
+
+      **Organization for Comprehension**
+
+      **Layout Guidelines**
+      - Left-align text (mirrors for right-to-left languages)
+      - Maximum 50-75 characters per line
+      - One column per page
+      - Avoid full justification (creates "text rivers" difficult for dyslexic readers)
+
+      **Grammar for Readability**
+      - Use sentence case (easier to read than title case)
+      - Never use all caps except acronyms
+      - Use camel case for hashtags: "#CamelCase" (helps screen readers)
+
+      **Interaction Design**
+      - Avoid "clear/reset" buttons (accidental data loss)
+      - Allow saving forms for later completion
+      - Provide keywords before/inside links for context
+
+      **Localization Considerations**
+      - Explain branded/technical terms before using
+      - Write out abbreviations on first use: "User Experience (UX)"
+      - Avoid homonyms or provide clear context
+      - Use HTML <abbr> or <acronym> tags when possible
+
+      **Reading Speed Context**
+      - Screen readers: 25 syllables per second
+      - 6th-grade level readers: 3 words per second
+      - Use this to estimate content consumption time
+
+      ### Dialog & Notification Standards
+      <!-- Additional dialog/notification patterns beyond errors -->
+      
+      ### Button & Action Text
+      <!-- Consolidate your JSON button/action guidelines here -->
+      
+      ### Terminology Standards
+
+      **Words to AVOID (and replacements)**
+      - **blacklist/whitelist** → Use "blocked users/approved users" or "prohibited/shared"
+      - **master** → Use "primary/main/source" (avoid hierarchy/oppression language)
+      - **redline** → Use "specifications/specs" 
+      - **dismiss** → Use "OK" or "close"
+      - **got it** → Use "OK"
+      - **see** → Use "view" (more inclusive)
+      - **stuff** → Be specific: "files/items/content"
+      - **launch** → Use "open" for apps/services
+      - **quit** → Use "close" or "exit" (platform-agnostic)
+      - **send to** → Use "open in" or "copy to"
+      - **toggle** → Describe the specific action instead
+      - **sorry** → Only use for major interruptions/inconvenience
+      - **fail/failure** → Be specific about the problem
+      - **successfully** → Usually redundant, remove it
+
+      **Words to USE WITH CAUTION**
+      - **add** → Reserve for bringing existing assets, not inviting people
+      - **asset** → Be more specific when possible (video, illustration, file)
+      - **auto/auto-** → Use "automatic/automatically" in descriptions
+      - **create** → Don't use for generative AI (use "generate")
+      - **done** → Use "close/finish" instead, except for standalone acknowledgment
+      - **feature** → Use sparingly, be specific about functionality
+      - **free** → Must cost nothing and require no credit card
+      - **solution** → Avoid jargon, use active verbs instead
+
+      **PREFERRED TERMS**
+      - **app** (not application)
+      - **cloud documents** (not cloud docs, except mobile space constraints)
+      - **continue/cancel** for dual workflow actions
+      - **generate** for AI content creation
+      - **import** for file format conversion
+      - **install** for software setup
+      - **JPEG** (not JPG)
+      - **latest version/older version** (not current/previous)
+      - **OK** (all caps) for acknowledgment
+      - **open** for files/apps/services
+      - **open in** (not edit in/view in)
+      - **recommend/suggestion** (human vs AI actions)
+      - **select** (device-agnostic, not click/tap)
+      - **series** (not playlist) for tutorial collections
+      - **start** (not begin) for calls-to-action
+      - **turn on/turn off** (not enable/disable)
+      - **update** (free) vs **upgrade** (paid)
+      - **view** (not see) for inclusivity
+
+      **File and Technical Terms**
+      - **document** (Document Cloud) vs **file** (Creative Cloud local)
+      - **embed** (disconnected copy) vs **link** (connected reference)
+      - **export** (different format) vs **open in** (same format, different app)
+      - **space** (local storage) vs **storage** (cloud storage)
+      - **to/from the cloud** (not in/on the cloud)
+
+      ### Inclusive Language Standards
+
+      **Core Principle**
+      Everyone building products has the responsibility to prioritize inclusion. Writing is an extremely powerful way to ensure products include as many people as possible.
+
+      **Inclusive vs Accessible Writing**
+      - Inclusive UX writing is accessible, but accessibility isn't always inclusive
+      - Must address how people with disabilities access information
+      - Should be descriptive and meaningful for all content types
+
+      **Preferred Inclusive Terms**
+
+      **People-First Language**
+      - **"People"** (not "customers/users" when speaking generally)
+      - **"You"** when speaking directly to your audience (not "users")
+      - Reason: Be inclusive of current and potential users, not just paying customers
+
+      **Descriptive Actions** 
+      - **"View/Show/Go to"** (not "see")
+      - **"Play video"** (not "watch video")
+      - Reason: Not everyone can "see" or "watch" - be descriptive and inclusive
+
+      **Meaningful Language**
+      - **Clear step guidance** (not vague confirmations)
+      - **Full words** (not symbols/abbreviations that screen readers can't parse)
+      - **"Last updated: 2 days ago"** (not "Updated • 2d")
+      - **"Update your information (step 1 of 3)"** (not "Confirm your information")
+      - Reason: Screen readers need meaningful, descriptive content
+
+      **Context-Dependent Exceptions**
+      - **"Customers"** acceptable when context depends on payment/subscription
+      - **"Users"** acceptable when context depends on specific roles (admin permissions)
+      - **Product-specific language** acceptable when context requires broader inclusion
+
+      ### Writing About People Standards
+
+      **Core Principles**
+      - Center the person you're writing to/about with compassion, inclusion, and respect
+      - Use neutral, precise, relevant descriptions (only include personal qualities if relevant)
+      - Choose words carefully and understand historical significance
+      - Be clear and avoid stereotypes - communicate from equality, not condescension
+      - Account for AI/ML data collection needs and allow self-identification
+
+      **Writing About Disability**
+
+      **Person-First vs Identity-First Language**
+      - **Person-first**: "Person with disabilities" (centers the person)
+      - **Identity-first**: "Deaf person" (highlights the identity)
+      - **Best practice**: Ask how someone wants to be identified
+      - **Avoid**: "Differently abled," "the disabled," "the blind" (condescending/monolithic)
+
+      **Language to Avoid/Replace**
+      - **"Crazy"** → "Ridiculous/unpredictable"
+      - **"Lame"** → "Incompetent/bad" 
+      - **"Dumb"** → "Inconsiderate"
+      - **"Tone-deaf"** → "Inconsiderate"
+      - **"Suffering from"** → "Has [condition]"
+      - **"Grayed out"** → "Unavailable/locked/deactivated"
+      - **"Sanity check"** → "Coherence check"
+      - **"Dummy variable"** → "Placeholder variable"
+
+      **Writing About Race and Class**
+
+      **Descriptive Language**
+      - Be specific about country of origin or race (don't generalize)
+      - Capitalize nationalities, peoples, races (except white), and tribes per AP style
+      - Use race/ethnicity only when relevant to content
+
+      **Terms to Avoid/Replace**
+      - **"Blacklist/Whitelist"** → "Blocked/Approved" or "Prohibited/Shared"
+      - **"Master/Slave"** → "Primary/Secondary"
+      - **"Grandfather clause"** → "Legacy"
+      - **"Dark pattern"** → (Avoid - assigns bad value to "dark")
+      - **"Long time no see"** → "Welcome back"
+      - **"No can do"** → "Sorry, something went wrong"
+      - **"Peanut gallery"** → "Critics"
+      - **"Guru/Ninja"** → "Expert/Authority"
+      - **"Spirit animal"** → "Role model/kindred spirit"
+      - **"Pow wow"** → "Meeting"
+
+      **Inclusive Representation**
+      - Use diverse name examples (Ayesha, Ibrahim, Vignesh, Quynh vs only John, Bill, Karen)
+      - Color descriptions: "Dark brown/beige/tan/peach" (not "skin/flesh/nude")
+
+      **Writing About Gender and Sexuality**
+
+      **Non-Gendered Language**
+      - **"Businessperson"** (not "businessman")
+      - **"Flight attendant"** (not "stewardess") 
+      - **"Server"** (not "waitress")
+      - **"They"** (not "he/she" or "(s)he")
+      - **"Parents"** (not "moms")
+      - **"A group of people"** (not "guys/girls/ladies")
+
+      **LGBTQ+ Language**
+      - Use as modifiers, not nouns: "transgender woman" (not "a transgender")
+      - **"Trans people"** (not "transgendereds" or "the transgendered")
+      - **"A transgender man"** (not "a transman")
+      - **"What are your pronouns?"** (not "preferred pronouns")
+      - **"Wholehearted/impassioned"** (not "hysterical")
+
+      **Data Collection**
+      - Allow self-identification and multiple selections
+      - Provide "Prefer to self-describe" and "Prefer not to respond" options
+      - Only ask for information that's actually needed
+
+examples:
+  - input: "License reassignment has failed. Please try to successfully login to see your available assets and quit the application if issues persist."
+    output: |
+      Following Adobe content guidelines:
+      
+      **Voice & Tone: Reassuring** (professional and reliable)
+      - Address user concerns professionally
+      - Provide clear guidance for resolution
+      - Avoid negative language when possible
+      
+      **Grammar & Mechanics Applied:**
+      - Active voice: "License reassignment didn't work" (not "has failed")
+      - Contraction: "can't" (conversational)
+      - Simple present tense: "sign in" (not "try to login")
+      - Sentence case and proper punctuation
+      
+      **Terminology Applied:**
+      - **failed** → Be specific about the problem
+      - **successfully** → Remove redundant word  
+      - **login** → Use "sign in" (clearer action)
+      - **see** → Use "view" (more inclusive)
+      - **assets** → Be specific: "files" or "documents"
+      - **quit** → Use "close" (platform-agnostic)
+
+      **Inclusive Language Applied:**
+      - **"view"** instead of "see" (descriptive action for all users)
+      - Direct address with **"you"** (speaking to the user personally)
+      - **Clear next steps** instead of vague confirmations
+      - **Meaningful descriptions** that work for screen readers
+      
+      **Improved version:**
+      "License reassignment didn't work. Please sign in again to view your files and close the app if issues continue."
+      
+      **Why this works:**
+      - Reassuring tone for a frustrating situation
+      - Specific about what went wrong (not just "failed")
+      - Clear next steps for resolution
+      - Inclusive language that works for all users and assistive technology
+      - Platform-agnostic terms that work across devices
+      - Removes unnecessary words for better readability
+      - Descriptive actions that don't assume physical abilities
+
+  - input: "Hey guys! This crazy new feature helps users who are suffering from disabilities. Just do a quick sanity check - if you can't see the interface, it's probably grayed out for visually-impaired people."
+    output: |
+      Following Adobe content guidelines:
+      
+      **Voice & Tone: Helpful** (polite and respectful)
+      - Professional language without casual colloquialisms
+      - Respectful toward all users
+      - Supportive and informative
+      
+      **Writing About People Applied:**
+      - **"guys"** → "everyone" or specific audience (non-gendered)
+      - **"crazy"** → "innovative" or "new" (avoid ableist language)
+      - **"suffering from disabilities"** → "people with disabilities" (person-first language)
+      - **"sanity check"** → "quick check" (avoid mental health appropriation)
+      - **"can't see"** → "can't view" (more inclusive language)
+      - **"grayed out"** → "unavailable" (descriptive, not visual-dependent)
+      - **"visually-impaired people"** → "people using screen readers" (specific, not generalizing)
+      
+      **Grammar & Mechanics Applied:**
+      - Simple present tense: "is" (not "it's probably")
+      - Active voice: "This feature helps" (clear subject)
+      - Sentence case throughout
+      
+      **Improved version:**
+      "This new feature helps people with disabilities navigate more easily. To check if the feature is available, look for the status indicator - if unavailable, the feature may not be compatible with your current screen reader."
+      
+      **Why this works:**
+      - Respectful, person-first language
+      - Avoids ableist terminology and assumptions
+      - Uses descriptive language that works for all users
+      - Provides specific, actionable information
+      - Professional tone appropriate for feature descriptions
+
+  - input: "OOPS! Sorry, we failed to save your file 'Final-proposal-draft.docx' to the 'Client-Work' folder because there was a server-side connectivity failure. You went offline and this operation couldn't be completed successfully. Try again later."
+    output: |
+      Following Adobe content guidelines:
+      
+      **Voice & Tone: Reassuring** (professional and reliable)
+      - User is worried about lost work - be supportive
+      - Professional language that acknowledges the problem
+      - Provide clear guidance without overwhelming details
+      
+      **Error Message Standards Applied:**
+      - **Remove "OOPS!"** - Unnecessary and unprofessional
+      - **Don't over-apologize** - "Sorry" not warranted for technical issues  
+      - **Don't use "failed"** - Be specific about what happened
+      - **Use generic language** - Remove specific filename/folder
+      - **Plain language** - Not "server-side connectivity failure"
+      - **Don't blame user** - Not "You went offline"
+      - **Remove "successfully"** - Redundant word
+      - **Be actionable** - Specific next steps
+      
+      **Grammar & Mechanics Applied:**
+      - Active voice: "We couldn't save" (not "couldn't be completed")
+      - Simple present tense: "try" (not "try again later")
+      - Sentence case throughout
+      
+      **Terminology Applied:**
+      - **"failed"** → "couldn't save" (specific problem)
+      - **"successfully"** → remove (redundant)
+      
+      **Improved version:**
+      "We couldn't save your document due to a connection issue. Please check your internet connection and try saving again."
+      
+      **Why this works:**
+      - Reassuring tone for a frustrating situation
+      - Clear about what happened without technical jargon
+      - Specific, actionable steps for resolution
+      - Generic language that works for any document
+      - Doesn't blame user or over-apologize
+      - Concise and focused on user needs
+
+  - input: "Click the green 'Save' button above to save changes. If you see the red error icon, click here for more info. Users with disabilities might struggle with this interface."
+    output: |
+      Following Adobe content guidelines:
+      
+      **Voice & Tone: Instructive** (neutral and direct)
+      - Clear guidance for completing tasks
+      - Professional and helpful language
+      
+      **Writing with Visuals Applied:**
+      - **"Click"** → "Select" (device-agnostic, inclusive of assistive tech)
+      - **"green button"** → "Save" (describe function, not appearance)
+      - **"above"** → Remove directional language (not accessible to screen readers)
+      - **"red error icon"** → Describe the actual error with text
+      - **"click here"** → Make link purpose clear from text alone
+      
+      **Writing About People Applied:**
+      - **"Users with disabilities"** → More specific and respectful language
+      - **"might struggle"** → Focus on solutions, not assumptions about difficulty
+      
+      **Grammar & Mechanics Applied:**
+      - Simple present tense: "select" (not "click")
+      - Active voice: "Select Save" (clear action)
+      - Remove unnecessary quotation marks around UI elements
+      
+      **Terminology Applied:**
+      - **"click"** → "select" (device-agnostic)
+      - Remove redundant "button" reference
+      
+      **Improved version:**
+      "Select Save to save your changes. If there's an error with your information, select 'View error details' to see what to fix. This interface works with screen readers and other assistive technology."
+      
+      **Why this works:**
+      - No reliance on color or position to convey information
+      - Clear link text that works when read out of context
+      - Device-agnostic language that works for all interaction methods
+      - Respectful language about accessibility without assumptions
+      - Describes what to do, not what things look like
+      - Works equally well for sighted users and screen reader users
+
+  - input: "Oops! Unfortunately, we regrettably failed to successfully process your CC files approximately 5 minutes ago due to a server-side connectivity failure above. The disabled users who can't see might struggle with this. Click the red button below to purchase premium assistance or contact your IT guru for additional help."
+    output: |
+      Following Adobe content guidelines:
+      
+      **Voice & Tone: Reassuring** (professional and reliable)
+      - User may be worried about file loss - be supportive
+      - Professional language that acknowledges the issue
+      - Provide clear, helpful next steps
+      
+      **Writing for Readability Applied:**
+      - **Break into short sentences** - One complex sentence becomes multiple clear ones
+      - **Remove unnecessary adverbs** - "unfortunately," "regrettably," "successfully" 
+      - **Simplify word choices** - "approximately" → "about," "purchase" → "buy"
+      - **Remove jargon** - "server-side connectivity failure" → "connection issue"
+      - **Use active voice** - "We couldn't process" (not "failed to process")
+      - **Plain language** - No corporate-speak or complex terms
+      
+      **Writing with Visuals Applied:**
+      - **Remove directional language** - "above," "below" (not accessible)
+      - **Describe function not appearance** - "Get help" (not "red button")
+      - **Remove color-dependent instructions** - Don't rely on "red" for identification
+      
+      **Writing About People Applied:**
+      - **Respectful language** - "People using screen readers" (not "disabled users who can't see")
+      - **Remove assumptions** - Don't assume people "struggle"
+      - **Person-first language** - Focus on people, not their disabilities
+      
+      **Terminology Applied:**
+      - **"CC files"** → "Creative Cloud files" (avoid abbreviations)
+      - **"failed"** → "couldn't process" (be specific)
+      - **"guru"** → "administrator" (avoid cultural appropriation)
+      - **"purchase"** → "buy" (simpler word choice)
+      
+      **Grammar & Mechanics Applied:**
+      - Remove "Oops!" (unprofessional exclamation)
+      - Simple past tense: "couldn't process" (not complex perfect tense)
+      - Active voice throughout
+      - Sentence case capitalization
+      
+      **Error Message Standards Applied:**
+      - Don't over-apologize for technical issues
+      - Be specific about what happened
+      - Provide actionable next steps
+      - Use generic language for better localization
+      
+      **Improved version:**
+      "We couldn't process your Creative Cloud files about 5 minutes ago due to a connection issue. Select 'Try again' to reprocess your files, or contact your IT administrator if the problem continues. This interface works with all assistive technology."
+      
+      **Why this works:**
+      - Short, clear sentences (6th-grade reading level)
+      - No unnecessary words or corporate language  
+      - Device-agnostic and accessible language
+      - Respectful of all users and abilities
+      - Specific, actionable guidance
+      - Professional tone appropriate for the situation
+      - Works for screen readers, translations, and all users
+
+metadata:
+  priority: high
+  version: 1.0
+  tags:
+    - content
+    - copywriting
+    - user-experience
+</rule>
+description:
+globs:
+alwaysApply: false
+---
