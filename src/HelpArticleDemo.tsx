@@ -1,20 +1,92 @@
-import React from "react";
-import { Provider } from "@react-spectrum/s2";
+import React, { useState } from "react";
+import { Provider, SearchField, ActionButton, Avatar, Divider } from "@react-spectrum/s2";
 import { style } from "@react-spectrum/s2/style" with { type: "macro" };
 import AISummaryPrototype from "./AISummaryPrototype";
+import Home from "@react-spectrum/s2/icons/Home";
+import ChevronRight from "@react-spectrum/s2/icons/ChevronRight";
 import "@react-spectrum/s2/page.css";
+import "./HelpArticleDemo.css";
 
 const HelpArticleDemo: React.FC = () => {
+  const [searchValue, setSearchValue] = useState("");
+
   return (
     <Provider background="base">
-      <div
-        className={style({
-          maxWidth: 1200,
-          marginX: "auto",
-          paddingX: 24,
-          paddingY: 40,
-        })}
-      >
+      <div className="help-page-layout">
+        {/* Top Navigation */}
+        <header className="top-nav">
+          <div className="top-nav-content">
+            <div className="top-nav-left">
+              <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                <rect width="36" height="36" rx="6" fill="#EB1000"/>
+                <text x="18" y="25" textAnchor="middle" fill="white" fontSize="20" fontWeight="bold" fontFamily="Arial">Ac</text>
+              </svg>
+              <span className="product-name">Acrobat</span>
+            </div>
+            <div className="top-nav-center">
+              <SearchField 
+                value={searchValue}
+                onChange={setSearchValue}
+                aria-label="Search Help"
+                placeholder="Search Help..."
+                UNSAFE_className="help-search"
+              />
+            </div>
+            <div className="top-nav-right">
+              <ActionButton isQuiet aria-label="Sign in">
+                Sign in
+              </ActionButton>
+              <Avatar />
+            </div>
+          </div>
+        </header>
+
+        {/* Left Sidebar Navigation */}
+        <aside className="left-nav">
+          <nav className="nav-menu">
+            <div className="nav-section">
+              <a href="#" className="nav-item">
+                <Home />
+                <span>Home</span>
+              </a>
+              <Divider />
+            </div>
+            
+            <div className="nav-section">
+              <div className="nav-section-title">Get started</div>
+              <a href="#" className="nav-item">Learn the basics</a>
+              <a href="#" className="nav-item">Access the app</a>
+              <a href="#" className="nav-item">Preferences and settings</a>
+            </div>
+
+            <div className="nav-section">
+              <div className="nav-section-title">Use Acrobat</div>
+              <a href="#" className="nav-item">Create documents</a>
+              <a href="#" className="nav-item">Edit documents</a>
+              <a href="#" className="nav-item">E-sign documents</a>
+              <a href="#" className="nav-item">Share and review</a>
+              <a href="#" className="nav-item">Print documents</a>
+            </div>
+
+            <div className="nav-section">
+              <div className="nav-section-title">Troubleshoot</div>
+              <a href="#" className="nav-item">Install and update issues</a>
+              <a href="#" className="nav-item">Performance issues</a>
+              <a href="#" className="nav-item active">Print and scan issues</a>
+            </div>
+          </nav>
+        </aside>
+
+        {/* Main Content Area */}
+        <main className="main-content">
+          <div
+            className={style({
+              maxWidth: "[1200px]",
+              marginX: "auto",
+              paddingX: "[24px]",
+              paddingY: "[40px]",
+            })}
+          >
         {/* Breadcrumb */}
         <nav
           className={style({
@@ -343,8 +415,10 @@ const HelpArticleDemo: React.FC = () => {
           </section>
 
           {/* More space for scrolling */}
-          <div className={style({ height: 800 })} />
+          <div className={style({ height: "[800px]" })} />
         </div>
+      </div>
+        </main>
       </div>
     </Provider>
   );

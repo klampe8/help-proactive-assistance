@@ -1,0 +1,194 @@
+/* Help Page Layout */
+.help-page-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* Top Navigation */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  height: 64px;
+  display: flex;
+  align-items: center;
+}
+
+.top-nav-content {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.top-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.product-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #292929;
+}
+
+.top-nav-center {
+  flex: 1;
+  max-width: 600px;
+}
+
+.help-search {
+  width: 100%;
+}
+
+.top-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Main Layout with Sidebar */
+.page-body {
+  display: flex;
+  flex: 1;
+}
+
+.left-nav {
+  width: 280px;
+  background-color: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  overflow-y: auto;
+  height: calc(100vh - 64px);
+  position: sticky;
+  top: 64px;
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex: 1;
+  background-color: #ffffff;
+  padding-bottom: 100px; /* Space for demo control panel */
+  overflow-y: visible;
+}
+
+/* Left Navigation Styles */
+.nav-menu {
+  padding: 16px 0;
+}
+
+.nav-section {
+  margin-bottom: 24px;
+}
+
+.nav-section-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #505050;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 24px;
+  margin-bottom: 4px;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px;
+  color: #292929;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: #f8f8f8;
+}
+
+.nav-item.active {
+  background-color: #f0f0f0;
+  font-weight: 500;
+  color: #1473e6;
+  border-left: 3px solid #1473e6;
+  padding-left: 21px;
+}
+
+.nav-item svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .help-page-layout {
+    grid-template-columns: 240px 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .help-page-layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "topnav"
+      "main";
+  }
+
+  .left-nav {
+    display: none;
+  }
+
+  .top-nav-center {
+    max-width: 400px;
+  }
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .help-page-layout,
+  .top-nav,
+  .main-content,
+  .left-nav {
+    background-color: #1e1e1e;
+  }
+
+  .left-nav {
+    border-right-color: #3c3c3c;
+  }
+
+  .top-nav {
+    border-bottom-color: #3c3c3c;
+  }
+
+  .product-name {
+    color: #ffffff;
+  }
+
+  .nav-section-title {
+    color: #b0b0b0;
+  }
+
+  .nav-item {
+    color: #e0e0e0;
+  }
+
+  .nav-item:hover {
+    background-color: #2a2a2a;
+  }
+
+  .nav-item.active {
+    background-color: #2a2a2a;
+    color: #5ba3ff;
+  }
+}
+

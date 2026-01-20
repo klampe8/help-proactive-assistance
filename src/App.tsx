@@ -12,10 +12,10 @@
 
 import React from "react";
 import "@react-spectrum/s2/page.css";
-import HelpArticleDemo from "./HelpArticleDemo";
+import MultiArticleDemo from "./MultiArticleDemo";
 
 function App() {
-  return <HelpArticleDemo />;
+  return <MultiArticleDemo />;
 }
 
 export default App;

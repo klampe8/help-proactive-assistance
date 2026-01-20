@@ -46,9 +46,13 @@
 }
 /* App Layout Styles */
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body {
   height: 100%;
-  overflow: hidden; /* Prevent scrolling on html/body */
+  overflow: auto; /* Allow scrolling */
 }
 
 header {
