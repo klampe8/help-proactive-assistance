@@ -246,51 +246,16 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
             {/* Expanded answer section */}
             {expandedQuestionData && (
               <div className="answer-container expanded">
-                <div className="answer-content-wrapper">
-                  <div className="answer-text-section">
-                    <p className="answer-text">{expandedQuestionData.answer}</p>
-                    {expandedQuestionData.steps && (
-                      <ol className="answer-steps">
-                        {expandedQuestionData.steps.map((step, index) => (
-                          <li key={index}>{step.text}</li>
-                        ))}
-                      </ol>
-                    )}
-                  </div>
-                  
-                  {/* Feedback section on the right side of answer */}
-                  {hasInteracted && (
-                    <div className="answer-feedback-section">
-                      <span className="feedback-label">Was this helpful?</span>
-                      <div className="feedback-buttons">
-                        <ActionButton
-                          isQuiet
-                          onPress={() => handleFeedback("up")}
-                          UNSAFE_className={`feedback-btn ${feedback === "up" ? "positive" : ""}`}
-                          aria-label="Thumbs up"
-                        >
-                          <ThumbUp />
-                        </ActionButton>
-                        <ActionButton
-                          isQuiet
-                          onPress={() => handleFeedback("down")}
-                          UNSAFE_className={`feedback-btn ${feedback === "down" ? "negative" : ""}`}
-                          aria-label="Thumbs down"
-                        >
-                          <ThumbDown />
-                        </ActionButton>
-                      </div>
-                    </div>
+                <div className="answer-text-section">
+                  <p className="answer-text">{expandedQuestionData.answer}</p>
+                  {expandedQuestionData.steps && (
+                    <ol className="answer-steps">
+                      {expandedQuestionData.steps.map((step, index) => (
+                        <li key={index}>{step.text}</li>
+                      ))}
+                    </ol>
                   )}
                 </div>
-                
-                {feedback && (
-                  <div className="feedback-message">
-                    <p className="feedback-message-text">
-                      Thank you for your feedback! This helps us improve our AI assistance.
-                    </p>
-                  </div>
-                )}
               </div>
             )}
 

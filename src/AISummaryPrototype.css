@@ -19,8 +19,8 @@
 /* Card */
 .ai-summary-card {
   background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
+  border-radius: 12px;
+  padding: 16px;
   border: 2px solid #9a3cf9;
   position: relative;
   overflow: visible;
@@ -36,8 +36,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
-  gap: 16px;
+  margin-bottom: 16px;
+  gap: 8px;
 }
 
 .ai-summary-header-left {
@@ -93,8 +93,8 @@
 .summary-content {
   background-color: #f7f8ff;
   border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 20px;
+  padding: 12px;
+  margin-bottom: 16px;
 }
 
 .summary-text {
@@ -141,7 +141,7 @@
 .questions-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 8px;
   margin-bottom: 0;
 }
 
@@ -154,11 +154,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 8px;
-  padding: 8px 12px;
-  height: auto;
-  min-height: 36px;
-  background-color: #f8f8f8;
+  gap: 0;
+  padding: 0;
+  height: 32px;
+  background-color: #f3f3f3;
   color: #292929;
   border-radius: 8px;
   border: none;
@@ -166,8 +165,10 @@
   font-size: 14px;
   text-align: left;
   transition: all 0.15s ease;
-  line-height: 1.5;
+  line-height: 18px;
   max-width: 100%;
+  font-weight: 500;
+  font-family: 'Adobe_Clean_Spectrum_VF:Medium', sans-serif;
 }
 
 .question-button:hover {
@@ -187,21 +188,15 @@
   background-color: #1a1a1a !important;
 }
 
-.question-text {
-  line-height: 1.4;
-  flex: 1;
-  white-space: normal;
-  word-wrap: break-word;
-}
-
 .icon-container {
   opacity: 1;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  padding: 6px 6px 6px 10px;
   flex-shrink: 0;
   color: #292929;
 }
@@ -211,33 +206,36 @@
 }
 
 .icon-container svg {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   display: block;
   color: inherit;
+}
+
+.question-text {
+  line-height: 18px;
+  flex: 1;
+  white-space: normal;
+  word-wrap: break-word;
+  padding: 7px 12px 7px 0;
 }
 
 /* Answer Container */
 .answer-container {
   margin-top: 16px;
-  padding: 16px;
+  padding: 12px;
   background-color: #f7f8ff;
   border-radius: 12px;
   position: relative;
+  margin-bottom: 16px;
 }
 
 .answer-container.expanded {
   animation: slideDown 0.3s ease-out;
 }
 
-.answer-content-wrapper {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-
 .answer-text-section {
-  flex: 1;
+  width: 100%;
 }
 
 .answer-text {
@@ -264,21 +262,7 @@
   margin-bottom: 0;
 }
 
-/* Answer Feedback Section - on the right side */
-.answer-feedback-section {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 8px;
-  padding-top: 2px;
-}
-
-.answer-feedback-section .feedback-label {
-  font-size: 12px;
-  color: #505050;
-  white-space: nowrap;
-}
-
+/* Feedback Buttons Container */
 .feedback-buttons {
   display: flex;
   gap: 4px;
@@ -290,9 +274,9 @@
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  padding-top: 20px;
-  margin-top: 20px;
-  border-top: 1px solid #e8e8e8;
+  padding-top: 6px;
+  margin-top: 0;
+  border-top: 1px solid #e1e1e1;
 }
 
 .bottom-feedback-section .feedback-label {
@@ -335,7 +319,7 @@
 }
 
 /* Feedback Message - appears below feedback section */
-.bottom-feedback-message {
+.feedback-message {
   margin-top: 12px;
   padding: 12px;
   background-color: #e1faf4;
@@ -343,26 +327,12 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-.bottom-feedback-message .feedback-message-text {
+.feedback-message-text {
   font-size: 14px;
   color: #268e6c;
   margin: 0;
 }
 
-/* Feedback Message - appears below answer content */
-.answer-container .feedback-message {
-  margin-top: 12px;
-  padding: 12px;
-  background-color: #e1faf4;
-  border-radius: 8px;
-  animation: fadeIn 0.3s ease-out;
-}
-
-.answer-container .feedback-message-text {
-  font-size: 14px;
-  color: #268e6c;
-  margin: 0;
-}
 
 
 /* Floating Button */

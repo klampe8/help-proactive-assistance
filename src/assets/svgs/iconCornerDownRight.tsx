@@ -3,15 +3,15 @@ import React from "react";
 export const IconCornerDownRight: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
   return (
     <svg
-      width="18"
-      height="18"
-      viewBox="0 0 18 18"
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
       <path
-        d="M3.75 3.75V7.5C3.75 8.29565 4.06607 9.05871 4.62868 9.62132C5.19129 10.1839 5.95435 10.5 6.75 10.5H14.25M14.25 10.5L11.25 7.5M14.25 10.5L11.25 13.5"
+        d="M4 4V8C4 8.88 4.35 9.72 4.98 10.35C5.61 10.98 6.45 11.33 7.33 11.33H15.33M15.33 11.33L12 8M15.33 11.33L12 14.67"
         stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
