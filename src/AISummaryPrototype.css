@@ -52,6 +52,12 @@
   flex-shrink: 0;
 }
 
+.ai-summary-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .ai-summary-title {
   font-weight: bold;
   font-size: 16px;
@@ -61,6 +67,25 @@
 
 .icon-shimmer {
   animation: shimmer 1.5s infinite;
+}
+
+.collapse-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: opacity 0.2s ease;
+  padding: 4px 8px;
+  height: auto;
+}
+
+.collapse-button-text {
+  font-size: 12px;
+  color: #505050;
+}
+
+.collapse-button svg {
+  width: 16px;
+  height: 16px;
 }
 
 .close-button {
@@ -96,34 +121,18 @@
 }
 
 .summary-text {
-  margin: 0 0 8px 0;
+  margin: 0;
   color: #292929;
   font-size: 14px;
   line-height: 1.5;
 }
 
-.summary-links {
-  list-style: disc;
-  margin: 0;
-  padding-left: 20px;
-}
-
-.summary-links li {
-  margin-bottom: 4px;
-  line-height: 1.5;
-}
-
-.summary-links li:last-child {
-  margin-bottom: 0;
-}
-
-.summary-links a {
+.summary-text a {
   color: #292929;
   text-decoration: underline;
-  font-size: 14px;
 }
 
-.summary-links a:hover {
+.summary-text a:hover {
   text-decoration: none;
 }
 
@@ -152,18 +161,11 @@
 }
 
 /* Questions Section */
-.questions-label {
-  margin-bottom: 8px;
-  font-weight: 500;
-  color: #505050;
-  font-size: 12px;
-  line-height: 16px;
-}
-
 .questions-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  margin-top: 16px;
 }
 
 .question-item {
@@ -174,9 +176,11 @@
 .question-button {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
+  gap: 8px;
   padding: 6px 12px;
-  height: 32px;
+  height: auto;
+  min-height: 32px;
   background-color: #f8f8f8;
   color: #292929;
   border-radius: 8px;
@@ -185,8 +189,8 @@
   font-size: 14px;
   text-align: left;
   transition: all 0.15s ease;
-  white-space: nowrap;
   line-height: 1.5;
+  max-width: 100%;
 }
 
 .question-button:hover {
@@ -209,12 +213,15 @@
 }
 
 .question-text {
-  line-height: 1.2;
+  line-height: 1.4;
+  flex: 1;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 .icon-container {
   opacity: 1;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -226,6 +233,7 @@
 
 .question-button.expanded .icon-container {
   color: #ffffff;
+  transform: rotate(90deg);
 }
 
 .icon-container svg {
@@ -248,9 +256,14 @@
   animation: slideDown 0.3s ease-out;
 }
 
-.answer-header {
-  position: relative;
-  padding-right: 32px;
+.answer-content-wrapper {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.answer-text-section {
+  flex: 1;
 }
 
 .answer-text {
@@ -262,7 +275,7 @@
 
 .answer-steps {
   list-style: decimal;
-  margin: 8px 0 12px 0;
+  margin: 8px 0 0 0;
   padding-left: 20px;
 }
 
@@ -277,65 +290,35 @@
   margin-bottom: 0;
 }
 
-.close-answer-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 24px;
-  height: 24px;
+/* Answer Feedback Section - on the right side */
+.answer-feedback-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  padding-top: 2px;
+}
+
+.answer-feedback-section .feedback-label {
+  font-size: 12px;
+  color: #505050;
+  white-space: nowrap;
+}
+
+.feedback-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+/* Feedback Buttons */
+.feedback-btn {
+  transition: all 0.2s ease;
+  width: 32px;
+  height: 32px;
   padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-.close-answer-btn:hover {
-  transform: scale(1.1);
-  background-color: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
-}
-
-.close-answer-btn svg {
-  width: 16px;
-  height: 16px;
-}
-
-/* Summary Feedback Section - at the bottom of the container */
-.summary-feedback-section {
-  margin-top: 16px;
-  padding-top: 16px;
-  border-top: 1px solid #e0e0e0;
-  animation: fadeIn 0.3s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Feedback Section */
-.feedback-section {
-  display: flex;
-  gap: 4px;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.feedback-label {
-  font-size: 12px;
-  color: var(--spectrum-gray-700);
-  margin-right: 8px;
-}
-
-.feedback-btn {
-  transition: all 0.2s ease;
 }
 
 .feedback-btn:active {
@@ -350,7 +333,13 @@
   color: #d7373f;
 }
 
-.feedback-message {
+.feedback-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Feedback Message - appears below answer content */
+.answer-container .feedback-message {
   margin-top: 12px;
   padding: 12px;
   background-color: #e1faf4;
@@ -358,7 +347,7 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-.feedback-message-text {
+.answer-container .feedback-message-text {
   font-size: 14px;
   color: #268e6c;
   margin: 0;

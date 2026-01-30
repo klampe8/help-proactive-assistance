@@ -7,6 +7,9 @@ import { IconAiChat } from "./assets/svgs/iconAiChat";
 import Close from "@react-spectrum/s2/icons/Close";
 import ThumbUp from "@react-spectrum/s2/icons/ThumbUp";
 import ThumbDown from "@react-spectrum/s2/icons/ThumbDown";
+import ChevronDown from "@react-spectrum/s2/icons/ChevronDown";
+import ChevronUp from "@react-spectrum/s2/icons/ChevronUp";
+import ChevronRight from "@react-spectrum/s2/icons/ChevronRight";
 import "./AISummaryPrototype.css";
 
 interface Question {
@@ -69,6 +72,7 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMinimized, setIsMinimized] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [expandedQuestion, setExpandedQuestion] = useState<string | null>(null);
   const [feedback, setFeedback] = useState<"up" | "down" | null>(null);
@@ -171,37 +175,54 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
             </div>
             <span className="ai-summary-title">Your AI summary</span>
           </div>
-          <ActionButton isQuiet onPress={handleClose} UNSAFE_className="close-button">
-            <Close />
-          </ActionButton>
+          <div className="ai-summary-header-right">
+            <ActionButton 
+              isQuiet 
+              onPress={() => setIsCollapsed(!isCollapsed)} 
+              UNSAFE_className="collapse-button"
+              aria-label={isCollapsed ? "Show more" : "Show less"}
+            >
+              {isCollapsed ? <ChevronDown /> : <ChevronUp />}
+              <span className="collapse-button-text">{isCollapsed ? "Show more" : "Show less"}</span>
+            </ActionButton>
+            <ActionButton isQuiet onPress={handleClose} UNSAFE_className="close-button">
+              <Close />
+            </ActionButton>
+          </div>
         </div>
 
         {/* Summary content */}
-        <div className="summary-content">
-          {isLoading ? (
-            <div>
-              <div className="skeleton-line" />
-              <div className="skeleton-line skeleton-line-short" />
-            </div>
-          ) : (
-            <div>
-              <p className="summary-text">{summaryText}</p>
-              <ul className="summary-links">
-                {summaryLinks.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href} onClick={() => setHasInteracted(true)}>{link.text}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
+        {!isCollapsed && (
+          <div className="summary-content">
+            {isLoading ? (
+              <div>
+                <div className="skeleton-line" />
+                <div className="skeleton-line skeleton-line-short" />
+              </div>
+            ) : (
+              <div>
+                <p className="summary-text">
+                  {summaryText}
+                  {summaryLinks.length > 0 && (
+                    <>
+                      {" "}
+                      {summaryLinks.map((link, index) => (
+                        <span key={index}>
+                          <a href={link.href} onClick={() => setHasInteracted(true)}>{link.text}</a>
+                          {index < summaryLinks.length - 1 && ", "}
+                        </span>
+                      ))}
+                    </>
+                  )}
+                </p>
+              </div>
+            )}
+          </div>
+        )}
 
         {/* Questions section */}
-        {!isLoading && (
+        {!isLoading && !isCollapsed && (
           <>
-            <div className="questions-label">Relevant questions:</div>
-
             <div className="questions-list">
               {displayedQuestions.map((question, index) => {
                 const isExpanded = expandedQuestion === question.id;
@@ -216,10 +237,10 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
                       onClick={() => toggleQuestion(question.id)}
                       className={`question-button ${isExpanded ? 'expanded' : ''}`}
                     >
-                      <div className="icon-container">
-                        <IconAiChat />
-                      </div>
                       <span className="question-text">{question.text}</span>
+                      <div className="icon-container">
+                        <ChevronRight />
+                      </div>
                     </button>
                   </div>
                 );
@@ -229,53 +250,48 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
             {/* Expanded answer section */}
             {expandedQuestionData && (
               <div className="answer-container expanded">
-                <div className="answer-header">
-                  <p className="answer-text">{expandedQuestionData.answer}</p>
-                  {expandedQuestionData.steps && (
-                    <ol className="answer-steps">
-                      {expandedQuestionData.steps.map((step, index) => (
-                        <li key={index}>{step.text}</li>
-                      ))}
-                    </ol>
+                <div className="answer-content-wrapper">
+                  <div className="answer-text-section">
+                    <p className="answer-text">{expandedQuestionData.answer}</p>
+                    {expandedQuestionData.steps && (
+                      <ol className="answer-steps">
+                        {expandedQuestionData.steps.map((step, index) => (
+                          <li key={index}>{step.text}</li>
+                        ))}
+                      </ol>
+                    )}
+                  </div>
+                  
+                  {/* Feedback section on the right side of answer */}
+                  {hasInteracted && (
+                    <div className="answer-feedback-section">
+                      <span className="feedback-label">Was this helpful?</span>
+                      <div className="feedback-buttons">
+                        <ActionButton
+                          isQuiet
+                          onPress={() => handleFeedback("up")}
+                          UNSAFE_className={`feedback-btn ${feedback === "up" ? "positive" : ""}`}
+                          aria-label="Thumbs up"
+                        >
+                          <ThumbUp />
+                        </ActionButton>
+                        <ActionButton
+                          isQuiet
+                          onPress={() => handleFeedback("down")}
+                          UNSAFE_className={`feedback-btn ${feedback === "down" ? "negative" : ""}`}
+                          aria-label="Thumbs down"
+                        >
+                          <ThumbDown />
+                        </ActionButton>
+                      </div>
+                    </div>
                   )}
-                  <ActionButton
-                    isQuiet
-                    onPress={() => setExpandedQuestion(null)}
-                    UNSAFE_className="close-answer-btn"
-                    aria-label="Close answer"
-                  >
-                    <Close />
-                  </ActionButton>
                 </div>
-              </div>
-            )}
-
-            {/* Feedback section at the bottom of the container - only show after interaction */}
-            {hasInteracted && (
-              <div className="summary-feedback-section">
-                <div className="feedback-section">
-                  <span className="feedback-label">Was this helpful?</span>
-                  <ActionButton
-                    isQuiet
-                    onPress={() => handleFeedback("up")}
-                    UNSAFE_className={`feedback-btn ${feedback === "up" ? "positive" : ""}`}
-                  >
-                    <ThumbUp />
-                  </ActionButton>
-                  <ActionButton
-                    isQuiet
-                    onPress={() => handleFeedback("down")}
-                    UNSAFE_className={`feedback-btn ${feedback === "down" ? "negative" : ""}`}
-                  >
-                    <ThumbDown />
-                  </ActionButton>
-                </div>
-
+                
                 {feedback && (
                   <div className="feedback-message">
                     <p className="feedback-message-text">
-                      Thank you for your feedback! This helps us improve our AI
-                      assistance.
+                      Thank you for your feedback! This helps us improve our AI assistance.
                     </p>
                   </div>
                 )}
