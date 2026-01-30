@@ -60,6 +60,7 @@
 }
 
 .ai-summary-title {
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
   font-weight: bold;
   font-size: 16px;
   line-height: 20px;
@@ -95,6 +96,7 @@
 }
 
 .collapse-button-text {
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
   font-size: 14px;
   color: #292929;
   font-weight: 500;
@@ -121,6 +123,7 @@
   color: #292929;
   font-size: 14px;
   line-height: 1.5;
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
 }
 
 .summary-text a {
@@ -187,7 +190,7 @@
   line-height: 18px;
   max-width: 100%;
   font-weight: 500;
-  font-family: 'Adobe_Clean_Spectrum_VF:Medium', sans-serif;
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
 }
 
 .question-button:hover {
@@ -260,6 +263,7 @@
   font-size: 14px;
   color: #292929;
   line-height: 1.5;
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
 }
 
 .answer-steps {
@@ -273,6 +277,7 @@
   font-size: 14px;
   color: #292929;
   line-height: 1.5;
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
 }
 
 .answer-steps li:last-child {
@@ -292,11 +297,12 @@
   justify-content: flex-end;
   gap: 12px;
   padding-top: 6px;
-  margin-top: 0;
+  margin-top: 16px;
   border-top: 1px solid #e1e1e1;
 }
 
 .bottom-feedback-section .feedback-label {
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
   font-size: 14px;
   color: #505050;
   font-weight: 500;
@@ -346,6 +352,7 @@
 }
 
 .feedback-message-text {
+  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
   font-size: 14px;
   color: #268e6c;
   margin: 0;

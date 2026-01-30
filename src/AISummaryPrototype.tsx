@@ -172,7 +172,7 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
             <div className={isLoading ? "icon-shimmer" : ""}>
               <IconAiChat />
             </div>
-            <span className="ai-summary-title">Your AI summary</span>
+            <span className="ai-summary-title">Help assistant</span>
           </div>
           <div className="ai-summary-header-right">
             <ActionButton 
