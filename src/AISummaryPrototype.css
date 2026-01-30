@@ -43,7 +43,7 @@
 .ai-summary-header-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .ai-summary-header-left svg {
@@ -73,20 +73,39 @@
 .collapse-button {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0;
   transition: opacity 0.2s ease;
-  padding: 4px 8px;
-  height: auto;
+  padding: 0;
+  height: 32px;
+  overflow: hidden;
+}
+
+.collapse-button > * {
+  padding: 6px;
+}
+
+.collapse-button > *:first-child {
+  padding-left: 10px;
+  padding-right: 6px;
+}
+
+.collapse-button > *:last-child {
+  padding-right: 12px;
+  padding-left: 0;
 }
 
 .collapse-button-text {
-  font-size: 12px;
-  color: #505050;
+  font-size: 14px;
+  color: #292929;
+  font-weight: 500;
+  line-height: 18px;
+  padding-top: 7px;
+  padding-bottom: 7px;
 }
 
 .collapse-button svg {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Summary Content */
@@ -194,8 +213,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
   padding: 6px 6px 6px 10px;
   flex-shrink: 0;
   color: #292929;
@@ -206,8 +223,8 @@
 }
 
 .icon-container svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   display: block;
   color: inherit;
 }
@@ -283,11 +300,12 @@
   font-size: 14px;
   color: #505050;
   font-weight: 500;
+  line-height: 18px;
 }
 
 .bottom-feedback-section .feedback-buttons {
   display: flex;
-  gap: 8px;
+  gap: 4px;
 }
 
 /* Feedback Buttons */
@@ -314,8 +332,8 @@
 }
 
 .feedback-btn svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Feedback Message - appears below feedback section */
