@@ -5,7 +5,6 @@ import {
 } from "@react-spectrum/s2";
 import { IconAiChat } from "./assets/svgs/iconAiChat";
 import { IconCornerDownRight } from "./assets/svgs/iconCornerDownRight";
-import Close from "@react-spectrum/s2/icons/Close";
 import ThumbUp from "@react-spectrum/s2/icons/ThumbUp";
 import ThumbDown from "@react-spectrum/s2/icons/ThumbDown";
 import ChevronDown from "@react-spectrum/s2/icons/ChevronDown";
@@ -184,9 +183,6 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
             >
               {isCollapsed ? <ChevronDown /> : <ChevronUp />}
               <span className="collapse-button-text">{isCollapsed ? "Show more" : "Show less"}</span>
-            </ActionButton>
-            <ActionButton isQuiet onPress={handleClose} UNSAFE_className="close-button">
-              <Close />
             </ActionButton>
           </div>
         </div>
