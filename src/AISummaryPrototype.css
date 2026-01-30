@@ -1,7 +1,7 @@
 /* AI Summary Container */
 .ai-summary-container {
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   position: relative;
   transition: all 0.3s ease;
 }
@@ -20,7 +20,7 @@
 .ai-summary-card {
   background-color: #ffffff;
   border-radius: 10px;
-  padding: 16px;
+  padding: 20px;
   border: 2px solid #9a3cf9;
   position: relative;
   overflow: visible;
@@ -36,8 +36,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
-  gap: 10px;
+  margin-bottom: 20px;
+  gap: 16px;
 }
 
 .ai-summary-header-left {
@@ -56,6 +56,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  margin-left: auto;
 }
 
 .ai-summary-title {
@@ -116,8 +117,8 @@
 .summary-content {
   background-color: #f7f8ff;
   border-radius: 12px;
-  padding: 12px;
-  margin-bottom: 16px;
+  padding: 16px;
+  margin-bottom: 20px;
 }
 
 .summary-text {
@@ -164,8 +165,8 @@
 .questions-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
+  gap: 12px;
+  margin-bottom: 0;
 }
 
 .question-item {
@@ -176,11 +177,11 @@
 .question-button {
   display: inline-flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 8px;
-  padding: 6px 12px;
+  padding: 8px 12px;
   height: auto;
-  min-height: 32px;
+  min-height: 36px;
   background-color: #f8f8f8;
   color: #292929;
   border-radius: 8px;
@@ -225,15 +226,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   flex-shrink: 0;
   color: #292929;
 }
 
 .question-button.expanded .icon-container {
   color: #ffffff;
-  transform: rotate(90deg);
 }
 
 .icon-container svg {
@@ -246,7 +246,7 @@
 /* Answer Container */
 .answer-container {
   margin-top: 16px;
-  padding: 12px;
+  padding: 16px;
   background-color: #f7f8ff;
   border-radius: 12px;
   position: relative;
@@ -310,6 +310,27 @@
   gap: 4px;
 }
 
+/* Bottom Feedback Section */
+.bottom-feedback-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.bottom-feedback-section .feedback-label {
+  font-size: 14px;
+  color: #505050;
+  font-weight: 500;
+}
+
+.bottom-feedback-section .feedback-buttons {
+  display: flex;
+  gap: 8px;
+}
+
 /* Feedback Buttons */
 .feedback-btn {
   transition: all 0.2s ease;
@@ -336,6 +357,21 @@
 .feedback-btn svg {
   width: 18px;
   height: 18px;
+}
+
+/* Feedback Message - appears below feedback section */
+.bottom-feedback-message {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: #e1faf4;
+  border-radius: 8px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.bottom-feedback-message .feedback-message-text {
+  font-size: 14px;
+  color: #268e6c;
+  margin: 0;
 }
 
 /* Feedback Message - appears below answer content */

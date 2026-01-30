@@ -4,12 +4,12 @@ import {
   ActionButton,
 } from "@react-spectrum/s2";
 import { IconAiChat } from "./assets/svgs/iconAiChat";
+import { IconCornerDownRight } from "./assets/svgs/iconCornerDownRight";
 import Close from "@react-spectrum/s2/icons/Close";
 import ThumbUp from "@react-spectrum/s2/icons/ThumbUp";
 import ThumbDown from "@react-spectrum/s2/icons/ThumbDown";
 import ChevronDown from "@react-spectrum/s2/icons/ChevronDown";
 import ChevronUp from "@react-spectrum/s2/icons/ChevronUp";
-import ChevronRight from "@react-spectrum/s2/icons/ChevronRight";
 import "./AISummaryPrototype.css";
 
 interface Question {
@@ -237,10 +237,10 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
                       onClick={() => toggleQuestion(question.id)}
                       className={`question-button ${isExpanded ? 'expanded' : ''}`}
                     >
-                      <span className="question-text">{question.text}</span>
                       <div className="icon-container">
-                        <ChevronRight />
+                        <IconCornerDownRight />
                       </div>
+                      <span className="question-text">{question.text}</span>
                     </button>
                   </div>
                 );
@@ -295,6 +295,37 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
                     </p>
                   </div>
                 )}
+              </div>
+            )}
+
+            {/* Feedback section at the bottom - always visible */}
+            <div className="bottom-feedback-section">
+              <span className="feedback-label">Was this helpful?</span>
+              <div className="feedback-buttons">
+                <ActionButton
+                  isQuiet
+                  onPress={() => handleFeedback("up")}
+                  UNSAFE_className={`feedback-btn ${feedback === "up" ? "positive" : ""}`}
+                  aria-label="Thumbs up"
+                >
+                  <ThumbUp />
+                </ActionButton>
+                <ActionButton
+                  isQuiet
+                  onPress={() => handleFeedback("down")}
+                  UNSAFE_className={`feedback-btn ${feedback === "down" ? "negative" : ""}`}
+                  aria-label="Thumbs down"
+                >
+                  <ThumbDown />
+                </ActionButton>
+              </div>
+            </div>
+
+            {feedback && (
+              <div className="feedback-message bottom-feedback-message">
+                <p className="feedback-message-text">
+                  Thank you for your feedback! This helps us improve our AI assistance.
+                </p>
               </div>
             )}
           </>
