@@ -281,14 +281,6 @@ const AISummaryPrototype: React.FC<AISummaryPrototypeProps> = ({
                 </ActionButton>
               </div>
             </div>
-
-            {feedback && (
-              <div className="feedback-message bottom-feedback-message">
-                <p className="feedback-message-text">
-                  Thank you for your feedback! This helps us improve our AI assistance.
-                </p>
-              </div>
-            )}
           </>
         )}
       </div>

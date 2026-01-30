@@ -342,24 +342,6 @@
   height: 20px;
 }
 
-/* Feedback Message - appears below feedback section */
-.feedback-message {
-  margin-top: 12px;
-  padding: 12px;
-  background-color: #e1faf4;
-  border-radius: 8px;
-  animation: fadeIn 0.3s ease-out;
-}
-
-.feedback-message-text {
-  font-family: 'Adobe Clean', 'Adobe_Clean_Spectrum_VF', sans-serif;
-  font-size: 14px;
-  color: #268e6c;
-  margin: 0;
-}
-
-
-
 /* Floating Button */
 .floating-button-container {
   position: fixed;
